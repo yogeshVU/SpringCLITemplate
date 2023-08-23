@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.util.*
 
 plugins {
 	id("org.springframework.boot") version "3.0.9"
@@ -8,7 +9,8 @@ plugins {
 }
 
 group = "com.goalabs"
-version = "0.0.1-SNAPSHOT"
+//version = "0.0.1-SNAPSHOT"
+val CLI_VERSION:String by project
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -38,4 +40,21 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.named("classes") {
+	dependsOn("createProperties")
+}
+
+
+tasks.create("createProperties") {
+	dependsOn("processResources")
+
+	doLast {
+		File("$buildDir/resources/main/version.properties").writer().use { w ->
+			val p = Properties()
+			p["version"] = CLI_VERSION
+			p.store(w, null)
+		}
+	}
 }
