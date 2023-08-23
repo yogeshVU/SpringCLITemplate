@@ -1,7 +1,12 @@
 name: CI
+#on:
+#  - push
+#  - pull_request
 on:
-  - push
-  - pull_request
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -18,4 +23,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
-
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: build/libs
