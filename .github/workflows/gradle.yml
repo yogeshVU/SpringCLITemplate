@@ -30,7 +30,7 @@ jobs:
         with:
           name: build-artifacts
           path: build/libs
-          args: bootJar
+          arguments: bootJar
 #
 #
 #  release:
