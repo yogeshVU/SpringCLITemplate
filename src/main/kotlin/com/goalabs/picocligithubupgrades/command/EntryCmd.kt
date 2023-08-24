@@ -5,7 +5,7 @@ import java.util.concurrent.Callable
 
 @Configuration
 @CommandLine.Command(
-    version = ["app_cli", "1.0.0"],
+
     mixinStandardHelpOptions = true,
     versionProvider = CLIVersionProvider::class,
     description = ["Sample App CLI for testing Picocli Github Upgrades wuth Spring Boot"]
