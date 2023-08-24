@@ -3,11 +3,6 @@ import org.springframework.context.annotation.Configuration
 import picocli.CommandLine
 import java.util.concurrent.Callable
 
-
-//versionProvider = TickompilerVersionProvider::class
-
-
-
 @Configuration
 @CommandLine.Command(
     version = ["app_cli", "1.0.0"],

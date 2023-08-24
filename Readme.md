@@ -1,0 +1,1 @@
+### Spring Boot CLI Application Template with Picocli and GitHub Build Action

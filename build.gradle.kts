@@ -11,6 +11,7 @@ plugins {
 group = "com.goalabs"
 //version = "0.0.1-SNAPSHOT"
 val CLI_VERSION:String by project
+val CLI_RELEASE_URL:String by project
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -54,6 +55,7 @@ tasks.create("createProperties") {
 		File("$buildDir/resources/main/version.properties").writer().use { w ->
 			val p = Properties()
 			p["version"] = CLI_VERSION
+			p["releaseURL"] = CLI_RELEASE_URL
 			p.store(w, null)
 		}
 	}
