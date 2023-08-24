@@ -31,6 +31,12 @@ jobs:
           name: build-artifacts
           path: build/libs
           arguments: bootJar
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
 #
 #
 #  release:
